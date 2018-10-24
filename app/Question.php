@@ -45,3 +45,4 @@ class Question extends Model
     //$question->user->email;
     
 }
+
