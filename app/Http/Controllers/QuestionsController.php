@@ -79,13 +79,10 @@ class QuestionsController extends Controller
      */
     public function edit(Question $question)
     {
-<<<<<<< HEAD
         if (Gate::denies('update-question', $question)) {
             abort(403, "Access denied");
         }
-=======
         $this->authorize('update', $question);
->>>>>>> lesson-12-b
         return view('questions.edit', compact('question'));
 
 
@@ -106,13 +103,10 @@ class QuestionsController extends Controller
      */
     public function update(AskQuestionRequest $request, Question $question)
     {
-<<<<<<< HEAD
         if (Gate::denies('update-question', $question)) {
             abort(403, "Access denied");
         }
-=======
         $this->authorize('update', $question);
->>>>>>> lesson-12-b
         $question->update($request->only('title', 'body'));
         return redirect('/questions')->with('success', "Your question has been updated");
         // redirect kann entweder Pfad so wie hier, oder eine Route sein.
@@ -126,13 +120,10 @@ class QuestionsController extends Controller
      */
     public function destroy(Question $question)
     {
-<<<<<<< HEAD
         if (Gate::denies('delete-question', $question)) {
             abort(403, "Access denied");
         }
-=======
         $this->authorize('delete', $question);
->>>>>>> lesson-12-b
         $question->delete();
         return redirect('/questions')->with('success', "Your question has been deleted");
     }
